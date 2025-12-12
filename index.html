@@ -38,6 +38,11 @@
 
         .parallax-shape {
             position: absolute;
+        }
+
+        .parallax-shape > div {
+            width: 100%;
+            height: 100%;
             opacity: 0.1;
             border-radius: 50%;
         }
@@ -45,33 +50,200 @@
         .shape-1 {
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
             top: 10%;
             left: 5%;
+        }
+
+        .shape-1 > div {
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            animation: float 8s ease-in-out infinite;
         }
 
         .shape-2 {
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
             top: 60%;
             right: 10%;
+        }
+
+        .shape-2 > div {
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            animation: float 10s ease-in-out infinite 1s;
         }
 
         .shape-3 {
             width: 150px;
             height: 150px;
-            background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 70%);
             top: 35%;
             right: 20%;
+        }
+
+        .shape-3 > div {
+            background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 6s ease-in-out infinite;
         }
 
         .shape-4 {
             width: 250px;
             height: 250px;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
             bottom: 15%;
             left: 15%;
+        }
+
+        .shape-4 > div {
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+            animation: float 9s ease-in-out infinite 2s;
+        }
+
+        .shape-5 {
+            width: 180px;
+            height: 180px;
+            top: 45%;
+            left: 8%;
+        }
+
+        .shape-5 > div {
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 7s ease-in-out infinite 1s;
+        }
+
+        .shape-6 {
+            width: 220px;
+            height: 220px;
+            bottom: 35%;
+            right: 5%;
+        }
+
+        .shape-6 > div {
+            background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%);
+            animation: float 11s ease-in-out infinite 3s;
+        }
+
+        .shape-7 {
+            width: 160px;
+            height: 160px;
+            top: 75%;
+            left: 40%;
+        }
+
+        .shape-7 > div {
+            background: radial-gradient(circle, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 5s ease-in-out infinite 2s;
+        }
+
+        .shape-8 {
+            width: 190px;
+            height: 190px;
+            top: 20%;
+            right: 35%;
+        }
+
+        .shape-8 > div {
+            background: radial-gradient(circle, rgba(255,255,255,0.17) 0%, rgba(255,255,255,0) 70%);
+            animation: float 7s ease-in-out infinite 1.5s;
+        }
+
+        /* Math Symbol Decorations */
+        .math-symbol {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .math-symbol > span {
+            display: block;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.15);
+            font-family: 'Times New Roman', serif;
+        }
+
+        .symbol-1 {
+            top: 15%;
+            left: 25%;
+        }
+
+        .symbol-1 > span {
+            font-size: 4em;
+            animation: float 6s ease-in-out infinite, rotate 12s linear infinite;
+        }
+
+        .symbol-2 {
+            top: 50%;
+            right: 15%;
+        }
+
+        .symbol-2 > span {
+            font-size: 3.5em;
+            animation: float 7s ease-in-out infinite 1s, rotate 15s linear infinite reverse;
+        }
+
+        .symbol-3 {
+            bottom: 25%;
+            left: 10%;
+        }
+
+        .symbol-3 > span {
+            font-size: 3em;
+            animation: float 8s ease-in-out infinite 2s, pulse 4s ease-in-out infinite;
+        }
+
+        .symbol-4 {
+            top: 65%;
+            left: 45%;
+        }
+
+        .symbol-4 > span {
+            font-size: 3.2em;
+            animation: float 5.5s ease-in-out infinite 0.5s, rotate 10s linear infinite;
+        }
+
+        .symbol-5 {
+            top: 30%;
+            right: 30%;
+        }
+
+        .symbol-5 > span {
+            font-size: 2.8em;
+            animation: float 6.5s ease-in-out infinite 1.5s, pulse 5s ease-in-out infinite;
+        }
+
+        .symbol-6 {
+            bottom: 40%;
+            right: 25%;
+        }
+
+        .symbol-6 > span {
+            font-size: 3.3em;
+            animation: float 7.5s ease-in-out infinite 3s, rotate 13s linear infinite reverse;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.15;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.25;
+            }
         }
 
         .container {
@@ -225,10 +397,23 @@
 <body>
     <!-- Parallax Background -->
     <div class="parallax-bg">
-        <div class="parallax-shape shape-1"></div>
-        <div class="parallax-shape shape-2"></div>
-        <div class="parallax-shape shape-3"></div>
-        <div class="parallax-shape shape-4"></div>
+        <!-- Background shapes with inner divs for animations -->
+        <div class="parallax-shape shape-1"><div></div></div>
+        <div class="parallax-shape shape-2"><div></div></div>
+        <div class="parallax-shape shape-3"><div></div></div>
+        <div class="parallax-shape shape-4"><div></div></div>
+        <div class="parallax-shape shape-5"><div></div></div>
+        <div class="parallax-shape shape-6"><div></div></div>
+        <div class="parallax-shape shape-7"><div></div></div>
+        <div class="parallax-shape shape-8"><div></div></div>
+
+        <!-- Mathematical symbols with inner spans for animations -->
+        <div class="math-symbol symbol-1"><span>∫</span></div>
+        <div class="math-symbol symbol-2"><span>Σ</span></div>
+        <div class="math-symbol symbol-3"><span>π</span></div>
+        <div class="math-symbol symbol-4"><span>√</span></div>
+        <div class="math-symbol symbol-5"><span>∞</span></div>
+        <div class="math-symbol symbol-6"><span>θ</span></div>
     </div>
 
     <div class="container">
@@ -291,16 +476,60 @@
     </div>
 
     <script>
-        // Parallax scrolling effect for background shapes
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
+        // Store mouse and scroll positions
+        let mouseX = 0.5;
+        let mouseY = 0.5;
+        let scrollY = 0;
+
+        // Combined parallax update function
+        function updateParallax() {
             const shapes = document.querySelectorAll('.parallax-shape');
+            const mathSymbols = document.querySelectorAll('.math-symbol');
 
             shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 0.15;
-                const yPos = -(scrolled * speed);
-                shape.style.transform = `translateY(${yPos}px)`;
+                // Scroll offset
+                const scrollSpeed = (index + 1) * 0.15;
+                const scrollOffset = -(scrollY * scrollSpeed);
+
+                // Mouse offset
+                const mouseSpeed = (index + 1) * 20;
+                const mouseXOffset = (mouseX - 0.5) * mouseSpeed;
+                const mouseYOffset = (mouseY - 0.5) * mouseSpeed;
+
+                // Combine both effects
+                const totalX = mouseXOffset;
+                const totalY = scrollOffset + mouseYOffset;
+
+                shape.style.transform = `translate(${totalX}px, ${totalY}px)`;
             });
+
+            mathSymbols.forEach((symbol, index) => {
+                // Different speeds for depth effect
+                const scrollSpeed = (index + 1) * 0.1;
+                const scrollOffset = -(scrollY * scrollSpeed);
+
+                const mouseSpeed = (index + 1) * 15;
+                const mouseXOffset = (mouseX - 0.5) * mouseSpeed;
+                const mouseYOffset = (mouseY - 0.5) * mouseSpeed;
+
+                const totalX = mouseXOffset;
+                const totalY = scrollOffset + mouseYOffset;
+
+                symbol.style.transform = `translate(${totalX}px, ${totalY}px)`;
+            });
+        }
+
+        // Parallax scrolling effect
+        window.addEventListener('scroll', () => {
+            scrollY = window.pageYOffset;
+            updateParallax();
+        });
+
+        // Mouse parallax effect
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX / window.innerWidth;
+            mouseY = e.clientY / window.innerHeight;
+            updateParallax();
         });
 
         // Intersection Observer for card animations
@@ -324,21 +553,6 @@
             const cards = document.querySelectorAll('.card');
             cards.forEach(card => {
                 observer.observe(card);
-            });
-        });
-
-        // Mouse parallax effect
-        document.addEventListener('mousemove', (e) => {
-            const shapes = document.querySelectorAll('.parallax-shape');
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-
-            shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 20;
-                const x = (mouseX - 0.5) * speed;
-                const y = (mouseY - 0.5) * speed;
-
-                shape.style.transform = `translate(${x}px, ${y}px)`;
             });
         });
 
