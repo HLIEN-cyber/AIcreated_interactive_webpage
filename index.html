@@ -17,7 +17,22 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(100, 150, 200, 0.03) 0px,
+                    rgba(100, 150, 200, 0.03) 1px,
+                    transparent 1px,
+                    transparent 20px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(100, 150, 200, 0.03) 0px,
+                    rgba(100, 150, 200, 0.03) 1px,
+                    transparent 1px,
+                    transparent 20px
+                ),
+                linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             min-height: 100vh;
             padding: 40px 20px;
             position: relative;
@@ -34,6 +49,8 @@
             pointer-events: none;
             z-index: 0;
             overflow: hidden;
+            perspective: 1000px;
+            transform-style: preserve-3d;
         }
 
         .parallax-shape {
@@ -147,13 +164,15 @@
         .math-symbol {
             position: absolute;
             pointer-events: none;
+            filter: drop-shadow(0 2px 8px rgba(102, 126, 234, 0.3));
         }
 
         .math-symbol > span {
             display: block;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.15);
+            font-weight: 400;
+            color: rgba(102, 126, 234, 0.4);
             font-family: 'Times New Roman', serif;
+            text-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
         }
 
         .symbol-1 {
@@ -162,7 +181,7 @@
         }
 
         .symbol-1 > span {
-            font-size: 4em;
+            font-size: 6em;
             animation: float 6s ease-in-out infinite, rotate 12s linear infinite;
         }
 
@@ -172,7 +191,7 @@
         }
 
         .symbol-2 > span {
-            font-size: 3.5em;
+            font-size: 5.5em;
             animation: float 7s ease-in-out infinite 1s, rotate 15s linear infinite reverse;
         }
 
@@ -182,7 +201,7 @@
         }
 
         .symbol-3 > span {
-            font-size: 3em;
+            font-size: 5em;
             animation: float 8s ease-in-out infinite 2s, pulse 4s ease-in-out infinite;
         }
 
@@ -192,7 +211,7 @@
         }
 
         .symbol-4 > span {
-            font-size: 3.2em;
+            font-size: 5.2em;
             animation: float 5.5s ease-in-out infinite 0.5s, rotate 10s linear infinite;
         }
 
@@ -202,7 +221,7 @@
         }
 
         .symbol-5 > span {
-            font-size: 2.8em;
+            font-size: 4.8em;
             animation: float 6.5s ease-in-out infinite 1.5s, pulse 5s ease-in-out infinite;
         }
 
@@ -212,17 +231,58 @@
         }
 
         .symbol-6 > span {
-            font-size: 3.3em;
+            font-size: 5.3em;
             animation: float 7.5s ease-in-out infinite 3s, rotate 13s linear infinite reverse;
+        }
+
+        /* Additional symbols for better coverage */
+        .symbol-7 {
+            top: 80%;
+            right: 40%;
+        }
+
+        .symbol-7 > span {
+            font-size: 4.5em;
+            animation: float 6s ease-in-out infinite 2.5s, rotate 14s linear infinite;
+        }
+
+        .symbol-8 {
+            top: 40%;
+            left: 5%;
+        }
+
+        .symbol-8 > span {
+            font-size: 5em;
+            animation: float 7s ease-in-out infinite 1.2s, pulse 5s ease-in-out infinite;
+        }
+
+        .symbol-9 {
+            bottom: 10%;
+            right: 10%;
+        }
+
+        .symbol-9 > span {
+            font-size: 4.8em;
+            animation: float 8s ease-in-out infinite 3s, rotate 16s linear infinite reverse;
+        }
+
+        .symbol-10 {
+            top: 5%;
+            right: 5%;
+        }
+
+        .symbol-10 > span {
+            font-size: 5.5em;
+            animation: float 5s ease-in-out infinite, pulse 6s ease-in-out infinite;
         }
 
         /* Animations */
         @keyframes float {
             0%, 100% {
-                transform: translateY(0px) scale(1);
+                transform: translateY(0px) translateZ(0) scale(1);
             }
             50% {
-                transform: translateY(-20px) scale(1.05);
+                transform: translateY(-30px) translateZ(20px) scale(1.08);
             }
         }
 
@@ -237,12 +297,12 @@
 
         @keyframes pulse {
             0%, 100% {
-                transform: scale(1);
-                opacity: 0.15;
+                transform: scale(1) translateZ(0);
+                opacity: 0.3;
             }
             50% {
-                transform: scale(1.1);
-                opacity: 0.25;
+                transform: scale(1.15) translateZ(15px);
+                opacity: 0.5;
             }
         }
 
@@ -414,6 +474,10 @@
         <div class="math-symbol symbol-4"><span>√</span></div>
         <div class="math-symbol symbol-5"><span>∞</span></div>
         <div class="math-symbol symbol-6"><span>θ</span></div>
+        <div class="math-symbol symbol-7"><span>∫</span></div>
+        <div class="math-symbol symbol-8"><span>Σ</span></div>
+        <div class="math-symbol symbol-9"><span>π</span></div>
+        <div class="math-symbol symbol-10"><span>√</span></div>
     </div>
 
     <div class="container">
@@ -481,41 +545,51 @@
         let mouseY = 0.5;
         let scrollY = 0;
 
-        // Combined parallax update function
+        // Combined parallax update function with enhanced 3D effects
         function updateParallax() {
             const shapes = document.querySelectorAll('.parallax-shape');
             const mathSymbols = document.querySelectorAll('.math-symbol');
 
             shapes.forEach((shape, index) => {
-                // Scroll offset
-                const scrollSpeed = (index + 1) * 0.15;
+                // Enhanced scroll offset with depth layers
+                const scrollSpeed = (index + 1) * 0.25;
                 const scrollOffset = -(scrollY * scrollSpeed);
 
-                // Mouse offset
-                const mouseSpeed = (index + 1) * 20;
+                // Enhanced mouse offset with 3D depth
+                const mouseSpeed = (index + 1) * 35;
                 const mouseXOffset = (mouseX - 0.5) * mouseSpeed;
                 const mouseYOffset = (mouseY - 0.5) * mouseSpeed;
 
-                // Combine both effects
+                // Add rotation based on mouse position
+                const rotateX = (mouseY - 0.5) * 10;
+                const rotateY = (mouseX - 0.5) * -10;
+
+                // Combine both effects with 3D transforms
                 const totalX = mouseXOffset;
                 const totalY = scrollOffset + mouseYOffset;
 
-                shape.style.transform = `translate(${totalX}px, ${totalY}px)`;
+                shape.style.transform = `translate(${totalX}px, ${totalY}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
             });
 
             mathSymbols.forEach((symbol, index) => {
-                // Different speeds for depth effect
-                const scrollSpeed = (index + 1) * 0.1;
+                // Different speeds for depth effect with higher multipliers
+                const scrollSpeed = (index + 1) * 0.2;
                 const scrollOffset = -(scrollY * scrollSpeed);
 
-                const mouseSpeed = (index + 1) * 15;
+                const mouseSpeed = (index + 1) * 30;
                 const mouseXOffset = (mouseX - 0.5) * mouseSpeed;
                 const mouseYOffset = (mouseY - 0.5) * mouseSpeed;
+
+                // Add 3D rotation
+                const rotateX = (mouseY - 0.5) * 15;
+                const rotateY = (mouseX - 0.5) * -15;
+                const rotateZ = (mouseX - 0.5) * (mouseY - 0.5) * 20;
 
                 const totalX = mouseXOffset;
                 const totalY = scrollOffset + mouseYOffset;
 
-                symbol.style.transform = `translate(${totalX}px, ${totalY}px)`;
+                // Apply 3D transforms with perspective
+                symbol.style.transform = `translate(${totalX}px, ${totalY}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${1 + Math.abs(mouseX - 0.5) * 0.1})`;
             });
         }
 
@@ -556,13 +630,25 @@
             });
         });
 
-        // Smooth parallax on scroll for header
+        // Enhanced smooth parallax on scroll for header and cards
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const header = document.querySelector('header');
+            const cards = document.querySelectorAll('.card');
+
             if (header) {
-                header.style.transform = `translateY(${scrolled * 0.3}px)`;
+                header.style.transform = `translateY(${scrolled * 0.4}px) scale(${1 - scrolled * 0.0002})`;
+                header.style.opacity = `${1 - scrolled * 0.001}`;
             }
+
+            // Add subtle parallax to cards
+            cards.forEach((card, index) => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardOffset = (window.innerHeight - cardTop) * 0.05;
+                if (cardTop < window.innerHeight && cardTop > -card.offsetHeight) {
+                    card.style.transform = `translateY(${-cardOffset}px)`;
+                }
+            });
         });
     </script>
 </body>
