@@ -452,6 +452,82 @@
             opacity: 0.9;
         }
 
+        .vote-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-radius: 8px;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .vote-section:hover {
+            border-color: rgba(102, 126, 234, 0.2);
+        }
+
+        .vote-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .vote-button:hover:not(:disabled) {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(102, 126, 234, 0.5);
+        }
+
+        .vote-button:active:not(:disabled) {
+            transform: scale(0.95);
+        }
+
+        .vote-button:disabled {
+            background: linear-gradient(135deg, #ccc 0%, #aaa 100%);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .vote-button.voted {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            animation: thumbsUpPulse 0.5s ease;
+        }
+
+        @keyframes thumbsUpPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .vote-count {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #667eea;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .vote-label {
+            font-size: 0.9em;
+            color: #888;
+            font-weight: 500;
+        }
+
         footer {
             text-align: center;
             margin-top: 60px;
@@ -521,6 +597,13 @@
                     <h2>ProbAbility</h2>
                     <p class="authors">by Joanne and Olivia</p>
                 </div>
+                <div class="vote-section">
+                    <button class="vote-button" data-project-id="1" onclick="handleVote(1)">👍</button>
+                    <div>
+                        <div class="vote-count" id="vote-count-1">0</div>
+                        <div class="vote-label">likes</div>
+                    </div>
+                </div>
                 <a class="video-link" href="https://youtu.be/XYCqpGLe6x4" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://chatgpt.com/canvas/shared/693789b9ddb481918801e91a965217cf" target="_blank">Explore Project →</a>
             </div>
@@ -530,6 +613,13 @@
                 <div class="card-content">
                     <h2>Ride the Sine</h2>
                     <p class="authors">by Hannah, Huliet and Yu-shin</p>
+                </div>
+                <div class="vote-section">
+                    <button class="vote-button" data-project-id="2" onclick="handleVote(2)">👍</button>
+                    <div>
+                        <div class="vote-count" id="vote-count-2">0</div>
+                        <div class="vote-label">likes</div>
+                    </div>
                 </div>
                 <a class="video-link" href="https://youtu.be/klZv9wnv9F8" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://chatgpt.com/canvas/shared/692ee06db4448191bd34745458d0b9b4" target="_blank">Explore Project →</a>
@@ -541,6 +631,13 @@
                     <h2>Complex Numbers Made Easy</h2>
                     <p class="authors">by ChaoCho, Jeremy and Luke</p>
                 </div>
+                <div class="vote-section">
+                    <button class="vote-button" data-project-id="3" onclick="handleVote(3)">👍</button>
+                    <div>
+                        <div class="vote-count" id="vote-count-3">0</div>
+                        <div class="vote-label">likes</div>
+                    </div>
+                </div>
                 <a class="video-link" href="https://youtu.be/h3Dy5DfiMnc" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://claude.ai/public/artifacts/f0350bc0-5806-4849-a911-c3888a6bea33" target="_blank">Explore Project →</a>
             </div>
@@ -550,6 +647,13 @@
                 <div class="card-content">
                     <h2>TriMaster</h2>
                     <p class="authors">by Kally and Zoey</p>
+                </div>
+                <div class="vote-section">
+                    <button class="vote-button" data-project-id="4" onclick="handleVote(4)">👍</button>
+                    <div>
+                        <div class="vote-count" id="vote-count-4">0</div>
+                        <div class="vote-label">likes</div>
+                    </div>
                 </div>
                 <a class="video-link" href="https://youtu.be/T0jSp64KRu0" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://codepen.io/rrgneqtu-the-decoder/full/ogxJMzo" target="_blank">Explore Project →</a>
@@ -561,6 +665,13 @@
                     <h2>Understanding Conditional Probability</h2>
                     <p class="authors">by Jeiden and Oswald</p>
                 </div>
+                <div class="vote-section">
+                    <button class="vote-button" data-project-id="5" onclick="handleVote(5)">👍</button>
+                    <div>
+                        <div class="vote-count" id="vote-count-5">0</div>
+                        <div class="vote-label">likes</div>
+                    </div>
+                </div>
                 <a class="video-link" href="https://youtu.be/AExPf4Ld2KA" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://claude.ai/public/artifacts/81ad3536-81c2-48e6-9879-3ed06d5247b8" target="_blank">Explore Project →</a>
             </div>
@@ -570,6 +681,13 @@
                 <div class="card-content">
                     <h2>Sinusoidal Functions</h2>
                     <p class="authors">by Ryan and Ethan</p>
+                </div>
+                <div class="vote-section">
+                    <button class="vote-button" data-project-id="6" onclick="handleVote(6)">👍</button>
+                    <div>
+                        <div class="vote-count" id="vote-count-6">0</div>
+                        <div class="vote-label">likes</div>
+                    </div>
                 </div>
                 <a class="video-link" href="https://youtu.be/F1wyOZgNb_s" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://chatgpt.com/canvas/shared/693a7a2bca208191bcbddfa6f847ff4f" target="_blank">Explore Project →</a>
@@ -582,6 +700,162 @@
     </div>
 
     <script>
+        // API Configuration
+        const API_URL = window.location.origin;
+
+        // Voting functionality
+        async function loadVotes() {
+            try {
+                const response = await fetch(`${API_URL}/api/votes`);
+                const data = await response.json();
+
+                if (data.success) {
+                    // Update vote counts
+                    for (const [projectId, count] of Object.entries(data.votes)) {
+                        const countElement = document.getElementById(`vote-count-${projectId}`);
+                        if (countElement) {
+                            countElement.textContent = count;
+                        }
+                    }
+
+                    // Check voting status for each project
+                    for (let i = 1; i <= 6; i++) {
+                        await checkVoteStatus(i);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading votes:', error);
+            }
+        }
+
+        async function checkVoteStatus(projectId) {
+            try {
+                const response = await fetch(`${API_URL}/api/votes/${projectId}/check`);
+                const data = await response.json();
+
+                if (data.success) {
+                    const button = document.querySelector(`[data-project-id="${projectId}"]`);
+                    const countElement = document.getElementById(`vote-count-${projectId}`);
+
+                    if (countElement) {
+                        countElement.textContent = data.count;
+                    }
+
+                    if (data.hasVoted && button) {
+                        button.disabled = true;
+                        button.classList.add('voted');
+                        button.title = 'You have already voted for this project';
+                    }
+                }
+            } catch (error) {
+                console.error(`Error checking vote status for project ${projectId}:`, error);
+            }
+        }
+
+        async function handleVote(projectId) {
+            const button = document.querySelector(`[data-project-id="${projectId}"]`);
+            const countElement = document.getElementById(`vote-count-${projectId}`);
+
+            try {
+                const response = await fetch(`${API_URL}/api/votes/${projectId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Update count
+                    if (countElement) {
+                        countElement.textContent = data.count;
+                    }
+
+                    // Disable button and mark as voted
+                    if (button) {
+                        button.disabled = true;
+                        button.classList.add('voted');
+                        button.title = 'You have already voted for this project';
+                    }
+
+                    // Show success feedback
+                    showNotification('Thank you for voting!', 'success');
+                } else {
+                    // Already voted or error
+                    showNotification(data.error || 'Unable to vote', 'error');
+
+                    if (data.count && countElement) {
+                        countElement.textContent = data.count;
+                    }
+
+                    if (button && data.error.includes('already voted')) {
+                        button.disabled = true;
+                        button.classList.add('voted');
+                    }
+                }
+            } catch (error) {
+                console.error('Error submitting vote:', error);
+                showNotification('Failed to submit vote. Please try again.', 'error');
+            }
+        }
+
+        function showNotification(message, type) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 25px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)' : 'linear-gradient(135deg, #f44336 0%, #d32f2f 100%)'};
+                color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                z-index: 10000;
+                font-weight: 600;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Load votes when page loads
+        window.addEventListener('load', loadVotes);
+
         // Store mouse and scroll positions
         let mouseX = 0.5;
         let mouseY = 0.5;
