@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Created Math Websites Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .intro {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-number {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 3em;
+            font-weight: 700;
+            color: rgba(102, 126, 234, 0.1);
+        }
+
+        .card h2 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card .authors {
+            color: #888;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: auto;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .card a:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .intro {
+                font-size: 1em;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI-Created Math Websites Showcase</h1>
+            <p class="intro">
+                This website curates AI-created websites related to high school mathematics as part of our math class project.
+                Students designed a UI poster that highlights math concepts they believe are worthy of further exploration.
+                They then used AI tools to help create the websites.
+            </p>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-number">01</div>
+                <h2>ProbAbility</h2>
+                <p class="authors">by Joanne and Olivia</p>
+                <a href="https://chatgpt.com/canvas/shared/693789b9ddb481918801e91a965217cf" target="_blank">Explore Project →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-number">02</div>
+                <h2>Ride the Sine</h2>
+                <p class="authors">by Hannah, Huliet and Yu-shin</p>
+                <a href="https://chatgpt.com/canvas/shared/692ee06db4448191bd34745458d0b9b4" target="_blank">Explore Project →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-number">03</div>
+                <h2>Complex Numbers Made Easy</h2>
+                <p class="authors">by ChaoCho, Jeremy and Luke</p>
+                <a href="https://claude.ai/public/artifacts/f0350bc0-5806-4849-a911-c3888a6bea33" target="_blank">Explore Project →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-number">04</div>
+                <h2>TriMaster</h2>
+                <p class="authors">by Kally and Zoey</p>
+                <a href="https://codepen.io/rrgneqtu-the-decoder/full/ogxJMzo" target="_blank">Explore Project →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-number">05</div>
+                <h2>Understanding Conditional Probability</h2>
+                <p class="authors">by Jeiden and Oswald</p>
+                <a href="https://claude.ai/public/artifacts/81ad3536-81c2-48e6-9879-3ed06d5247b8" target="_blank">Explore Project →</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Math Class Project | AI-Created Interactive Websites</p>
+        </footer>
+    </div>
+</body>
+</html>
