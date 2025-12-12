@@ -366,6 +366,11 @@
             overflow: hidden;
             opacity: 0;
             transform: translateY(50px);
+            min-height: 280px;
+        }
+
+        .card-content {
+            flex: 1;
         }
 
         .card.visible {
@@ -412,8 +417,8 @@
         }
 
         .card .video-link {
-            display: inline-block;
-            margin-top: 15px;
+            display: block;
+            margin-top: 20px;
             padding: 10px 20px;
             background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
             color: white;
@@ -431,8 +436,8 @@
         }
 
         .card a {
-            display: inline-block;
-            margin-top: auto;
+            display: block;
+            margin-top: 12px;
             padding: 12px 25px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -512,48 +517,60 @@
         <div class="grid">
             <div class="card">
                 <div class="card-number">01</div>
-                <h2>ProbAbility</h2>
-                <p class="authors">by Joanne and Olivia</p>
+                <div class="card-content">
+                    <h2>ProbAbility</h2>
+                    <p class="authors">by Joanne and Olivia</p>
+                </div>
                 <a class="video-link" href="https://youtu.be/XYCqpGLe6x4" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://chatgpt.com/canvas/shared/693789b9ddb481918801e91a965217cf" target="_blank">Explore Project →</a>
             </div>
 
             <div class="card">
                 <div class="card-number">02</div>
-                <h2>Ride the Sine</h2>
-                <p class="authors">by Hannah, Huliet and Yu-shin</p>
+                <div class="card-content">
+                    <h2>Ride the Sine</h2>
+                    <p class="authors">by Hannah, Huliet and Yu-shin</p>
+                </div>
                 <a class="video-link" href="https://youtu.be/klZv9wnv9F8" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://chatgpt.com/canvas/shared/692ee06db4448191bd34745458d0b9b4" target="_blank">Explore Project →</a>
             </div>
 
             <div class="card">
                 <div class="card-number">03</div>
-                <h2>Complex Numbers Made Easy</h2>
-                <p class="authors">by ChaoCho, Jeremy and Luke</p>
+                <div class="card-content">
+                    <h2>Complex Numbers Made Easy</h2>
+                    <p class="authors">by ChaoCho, Jeremy and Luke</p>
+                </div>
                 <a class="video-link" href="https://youtu.be/h3Dy5DfiMnc" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://claude.ai/public/artifacts/f0350bc0-5806-4849-a911-c3888a6bea33" target="_blank">Explore Project →</a>
             </div>
 
             <div class="card">
                 <div class="card-number">04</div>
-                <h2>TriMaster</h2>
-                <p class="authors">by Kally and Zoey</p>
+                <div class="card-content">
+                    <h2>TriMaster</h2>
+                    <p class="authors">by Kally and Zoey</p>
+                </div>
                 <a class="video-link" href="https://youtu.be/T0jSp64KRu0" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://codepen.io/rrgneqtu-the-decoder/full/ogxJMzo" target="_blank">Explore Project →</a>
             </div>
 
             <div class="card">
                 <div class="card-number">05</div>
-                <h2>Understanding Conditional Probability</h2>
-                <p class="authors">by Jeiden and Oswald</p>
+                <div class="card-content">
+                    <h2>Understanding Conditional Probability</h2>
+                    <p class="authors">by Jeiden and Oswald</p>
+                </div>
                 <a class="video-link" href="https://youtu.be/AExPf4Ld2KA" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://claude.ai/public/artifacts/81ad3536-81c2-48e6-9879-3ed06d5247b8" target="_blank">Explore Project →</a>
             </div>
 
             <div class="card">
                 <div class="card-number">06</div>
-                <h2>Sinusoidal Functions</h2>
-                <p class="authors">by Ryan and Ethan</p>
+                <div class="card-content">
+                    <h2>Sinusoidal Functions</h2>
+                    <p class="authors">by Ryan and Ethan</p>
+                </div>
                 <a class="video-link" href="https://youtu.be/F1wyOZgNb_s" target="_blank">📺 Watch Explanation Video</a>
                 <a href="https://chatgpt.com/canvas/shared/693a7a2bca208191bcbddfa6f847ff4f" target="_blank">Explore Project →</a>
             </div>
@@ -655,25 +672,15 @@
             });
         });
 
-        // Enhanced smooth parallax on scroll for header and cards
+        // Enhanced smooth parallax on scroll for header only
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const header = document.querySelector('header');
-            const cards = document.querySelectorAll('.card');
 
             if (header) {
                 header.style.transform = `translateY(${scrolled * 0.4}px) scale(${1 - scrolled * 0.0002})`;
                 header.style.opacity = `${1 - scrolled * 0.001}`;
             }
-
-            // Add subtle parallax to cards
-            cards.forEach((card, index) => {
-                const cardTop = card.getBoundingClientRect().top;
-                const cardOffset = (window.innerHeight - cardTop) * 0.05;
-                if (cardTop < window.innerHeight && cardTop > -card.offsetHeight) {
-                    card.style.transform = `translateY(${-cardOffset}px)`;
-                }
-            });
         });
     </script>
 </body>
