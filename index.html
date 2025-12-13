@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XX02WFH95P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XX02WFH95P', {
+        'custom_map': {'dimension1': 'website_name'},
+        'page_title': 'Math Showcase - Main Site'
+      });
+
+      // 標記這是哪個網站
+      gtag('event', 'page_view', {
+        'website_name': 'math-showcase-main',
+        'site_section': 'showcase'
+      });
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Created Math Websites Showcase</title>
