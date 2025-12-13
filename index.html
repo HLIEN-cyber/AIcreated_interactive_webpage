@@ -8,7 +8,16 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-XXXXXXXXXX', {
+        'custom_map': {'dimension1': 'website_name'},
+        'page_title': 'Math Showcase - Main Site'
+      });
+
+      // 標記這是哪個網站
+      gtag('event', 'page_view', {
+        'website_name': 'math-showcase-main',
+        'site_section': 'showcase'
+      });
     </script>
 
     <meta charset="UTF-8">
