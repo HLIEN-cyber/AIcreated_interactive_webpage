@@ -478,6 +478,20 @@
             overflow: hidden;
         }
 
+        .header-credit {
+            position: absolute;
+            right: 20px;
+            bottom: 15px;
+            font-size: 0.9em;
+            color: rgba(80, 50, 30, 0.8);
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            backdrop-filter: blur(4px);
+        }
+
         header::before {
             content: '';
             position: absolute;
@@ -725,15 +739,6 @@
             position: relative;
         }
 
-        .footer-credit {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            font-size: 0.85em;
-            color: rgba(80, 50, 30, 0.65);
-            font-style: italic;
-        }
-
         @media (max-width: 768px) {
             h1 {
                 font-size: 2em;
@@ -792,6 +797,7 @@
 
     <div class="container">
         <header>
+            <p class="header-credit">This website was created using Claude Code by HL at IBSH.</p>
             <h1>AI-Created Math Websites Showcase</h1>
             <p class="intro">
                 This website curates AI-created websites related to high school mathematics as part of our math class project.
@@ -864,7 +870,6 @@
 
         <footer>
             <p>&copy; 2025 Math Class Project | AI-Created Interactive Websites</p>
-            <p class="footer-credit">This website was created using Claude Code by HL at IBSH.</p>
         </footer>
     </div>
 
