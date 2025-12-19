@@ -808,12 +808,24 @@
                 padding: 20px 10px;
             }
 
-            /* Hide decorative elements on very small screens for performance */
-            .parallax-shape,
-            .math-symbol,
-            .deco-line,
+            /* Scale down decorative elements on small screens but keep them visible */
+            .parallax-shape {
+                transform: scale(0.5) !important;
+                opacity: 0.5 !important;
+            }
+
+            .math-symbol {
+                transform: scale(0.6) !important;
+                opacity: 0.45 !important;
+            }
+
+            .deco-line {
+                opacity: 0.3;
+            }
+
             .deco-circle {
-                display: none;
+                opacity: 0.3;
+                transform: scale(0.7);
             }
 
             h1 {
@@ -888,20 +900,24 @@
                 padding: 30px 15px;
             }
 
-            /* Scale down decorative elements */
+            /* Scale down decorative elements but keep them visible for parallax */
             .parallax-shape {
-                transform: scale(0.6) !important;
-                opacity: 0.5;
+                transform: scale(0.7) !important;
+                opacity: 0.6 !important;
             }
 
             .math-symbol {
-                transform: scale(0.7) !important;
+                transform: scale(0.75) !important;
+                opacity: 0.5 !important;
+            }
+
+            .deco-line {
                 opacity: 0.4;
             }
 
-            .deco-line,
             .deco-circle {
-                opacity: 0.3;
+                opacity: 0.4;
+                transform: scale(0.85);
             }
 
             h1 {
@@ -958,15 +974,15 @@
                 padding: 35px 20px;
             }
 
-            /* Scale decorative elements for tablets */
+            /* Scale decorative elements for tablets with good visibility */
             .parallax-shape {
-                transform: scale(0.8) !important;
-                opacity: 0.6;
+                transform: scale(0.85) !important;
+                opacity: 0.65 !important;
             }
 
             .math-symbol {
-                transform: scale(0.85) !important;
-                opacity: 0.5;
+                transform: scale(0.9) !important;
+                opacity: 0.55 !important;
             }
 
             h1 {
@@ -1055,10 +1071,20 @@
                 min-height: auto;
             }
 
-            /* Hide most decorative elements in landscape for better content visibility */
-            .parallax-shape,
+            /* Reduce but keep decorative elements visible in landscape */
+            .parallax-shape {
+                opacity: 0.45 !important;
+                transform: scale(0.6) !important;
+            }
+
             .math-symbol {
-                opacity: 0.2;
+                opacity: 0.4 !important;
+                transform: scale(0.65) !important;
+            }
+
+            .deco-line,
+            .deco-circle {
+                opacity: 0.35;
             }
         }
 
@@ -1258,6 +1284,24 @@
             mouseY = e.clientY / window.innerHeight;
             updateParallax();
         });
+
+        // Touch parallax effect for mobile devices
+        document.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                mouseX = e.touches[0].clientX / window.innerWidth;
+                mouseY = e.touches[0].clientY / window.innerHeight;
+                updateParallax();
+            }
+        }, { passive: true });
+
+        // Touch start event to initialize position
+        document.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 0) {
+                mouseX = e.touches[0].clientX / window.innerWidth;
+                mouseY = e.touches[0].clientY / window.innerHeight;
+                updateParallax();
+            }
+        }, { passive: true });
 
         // Intersection Observer for card animations
         const observerOptions = {
