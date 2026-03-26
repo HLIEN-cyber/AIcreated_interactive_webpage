@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Redirect GitHub Pages to Cloudflare Pages (avoids loop: only runs on github.io domain) -->
+    <script>
+      if (window.location.hostname.indexOf('github.io') !== -1) {
+        window.location.replace('https://ai-and-math.pages.dev' + window.location.pathname + window.location.search + window.location.hash);
+      }
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XX02WFH95P"></script>
     <script>
